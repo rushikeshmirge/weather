@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+.container {
+  max-width: 400px;
+  margin: 100px auto;
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+}
+
+input[type="text"] {
+  padding: 10px;
+  width: 60%;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#weatherDisplay {
+  margin-top: 20px;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Weather App</h1>
+    <input type="text" id="locationInput" placeholder="Enter city name">
+    <button onclick="getWeather()">Get Weather</button>
+    <div id="weatherDisplay"></div>
+  </div>
+
+  <script>
+   function getWeather() {
+  const location = document.getElementById('locationInput').value;
+
+  // Simulated weather data
+  const weatherData = {
+    name: location,
+    main: {
+      temp: 25, // Temperature in Celsius
+    },
+    weather: [
+      {
+        description: "Partly cloudy",
+      }
+    ]
+  };
+
+  const weatherDisplay = document.getElementById('weatherDisplay');
+  weatherDisplay.innerHTML = `
+    <h2>Weather in ${weatherData.name}</h2>
+    <p>Temperature: ${weatherData.main.temp}°C</p>
+    <p>Description: ${weatherData.weather[0].description}</p>
+  `;
+}
+
+  </script>
+</body>
+</html>
